@@ -3,6 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+     h1{
+        text-align: center;
+        font-family: Arial, sans-serif;
+        text-decoration: underline;
+     }  
+     #ageForm{
+        text-align: center;
+        margin-top: 20px;
+        font-family: Arial, sans-serif;
+     } 
+        #result{
+            text-align: center;
+            font-size: 1.2em;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+        }
+    .error {
+        color: red;
+    }
+    .minor {
+        color: orange;
+    }
+    .adult {
+        color: green;
+    }
+    .senior {
+        color: blue;
+    }
+    </style>
     <title>Age Checker app</title>
 </head>
 <body>
@@ -18,17 +48,22 @@
         event.preventDefault();
         const age=parseInt(document.getElementById('ageInput').value);
         let resultText='';
+        result.className = '';
         if(age<0){
             resultText='Age cannot be negative.';
+            result.className = 'error';
         }
         else if(age<18){
             resultText='You are a minor.';
+            result.className = 'minor';
         }
         else if(age<=65){
             resultText='You are an adult.';
+            result.className = 'adult';
         }
         else{
             resultText='You are a senior citizen.';
+            result.className = 'senior';
         }
         document.getElementById('result').textContent=resultText;
        })
