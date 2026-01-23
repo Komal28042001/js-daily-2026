@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Checker app</title>
+</head>
+<body>
+    <h1>Age Checker Application</h1>
+    <form id="ageForm">
+        <label for="ageInput">Enter your age:</label>
+        <input type="Number" id="ageInput" name="ageInput" required>
+        <button type="submit">Check Age</button>
+    </form>
+    <p id="result"></p>
+    <script>
+       document.getElementById('ageForm').addEventListener('submit',function(event){
+        event.preventDefault();
+        const age=parseInt(document.getElementById('ageInput').value);
+        let resultText='';
+        if(age<0){
+            resultText='Age cannot be negative.';
+        }
+        else if(age<18){
+            resultText='You are a minor.';
+        }
+        else if(age<=65){
+            resultText='You are an adult.';
+        }
+        else{
+            resultText='You are a senior citizen.';
+        }
+        document.getElementById('result').textContent=resultText;
+       })
+    </script>
+</body>
+</html>
