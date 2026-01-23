@@ -3,70 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Checker App</title>
     <style>
-     h1{
-        text-align: center;
-        font-family: Arial, sans-serif;
-        text-decoration: underline;
-     }  
-     #ageForm{
-        text-align: center;
-        margin-top: 20px;
-        font-family: Arial, sans-serif;
-     } 
-        #result{
+        h1 {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            text-decoration: underline;
+        }  
+        #ageForm {
+            text-align: center;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+        } 
+        #result {
             text-align: center;
             font-size: 1.2em;
             margin-top: 20px;
             font-family: Arial, sans-serif;
         }
-    .error {
-        color: red;
-    }
-    .minor {
-        color: orange;
-    }
-    .adult {
-        color: green;
-    }
-    .senior {
-        color: blue;
-    }
+        .error {
+            color: red;
+        }
+        .minor {
+            color: orange;
+        }
+        .adult {
+            color: green;
+        }
+        .senior {
+            color: blue;
+        }
     </style>
-    <title>Age Checker app</title>
 </head>
 <body>
     <h1>Age Checker Application</h1>
+
     <form id="ageForm">
         <label for="ageInput">Enter your age:</label>
-        <input type="Number" id="ageInput" name="ageInput" required>
+        <input type="number" id="ageInput" name="ageInput" required>
         <button type="submit">Check Age</button>
     </form>
+
     <p id="result"></p>
+
     <script>
-       document.getElementById('ageForm').addEventListener('submit',function(event){
-        event.preventDefault();
-        const age=parseInt(document.getElementById('ageInput').value);
-        let resultText='';
-        result.className = '';
-        if(age<0){
-            resultText='Age cannot be negative.';
-            result.className = 'error';
-        }
-        else if(age<18){
-            resultText='You are a minor.';
-            result.className = 'minor';
-        }
-        else if(age<=65){
-            resultText='You are an adult.';
-            result.className = 'adult';
-        }
-        else{
-            resultText='You are a senior citizen.';
-            result.className = 'senior';
-        }
-        document.getElementById('result').textContent=resultText;
-       })
+        // Listen for form submission
+        document.getElementById('ageForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get age input and result paragraph
+            const age = parseInt(document.getElementById('ageInput').value);
+            const result = document.getElementById('result');
+
+            // Clear previous result
+            result.textContent = '';
+            result.className = '';
+
+            // Determine message and color
+            let resultText = '';
+            if (age < 0) {
+                resultText = 'Age cannot be negative.';
+                result.className = 'error';
+            } else if (age < 18) {
+                resultText = 'You are a minor.';
+                result.className = 'minor';
+            } else if (age <= 65) {
+                resultText = 'You are an adult.';
+                result.className = 'adult';
+            } else {
+                resultText = 'You are a senior citizen.';
+                result.className = 'senior';
+            }
+
+            // Display the message
+            result.textContent = resultText;
+        });
     </script>
 </body>
 </html>
