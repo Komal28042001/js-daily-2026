@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h3{
+        text-align: center;
+        font-weight: 23px;
+    }
+    p{
+        color:red;
+    }
+   .cenetr{
+    text-align: center;
+   }
+</style>
+<body>
+    <div class="cenetr">
+    <h3>Multipliaction Table</h3>
+      <input type="number" name="num" id="num" placeholder="Enter a number">
+      <button onclick="multiply()">Multiply</button>
+      <p id="result"></p>
+      </div>
+</body>
+<script>
+       function multiply(){
+        let number=document.getElementById("num").value;
+
+        let answer=number*2;
+
+        document.getElementById("result").innerHTML="Result:"+answer;
+         
+      }
+</script>
+</html>
