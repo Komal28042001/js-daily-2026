@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input" placeholder="Enter number:">
+    <button onclick="handleInput()">Click me</button>
+    <p id="output"></p>
+</body>
+<script>
+    function handleInput(){
+        let value=document.getElementById("input").value;
+        if (value===""){
+            document.getElementById("output").innerHTML="please Enter a Number";
+            return;
+        }
+
+        let num=Number(value);
+
+        if (isNaN(num)){
+            document.getElementById("output").innerHTML="Invalid Input";
+            return;
+        }
+        let result=checkEvenOdd(num);
+        document.getElementById("output").innerHTML=result;
+    }
+    function checkEvenOdd(num){
+        if(num%2===0){
+            return"even";
+        }
+        else{
+            return"Odd";
+        }
+    }
+</script>
+</html>
