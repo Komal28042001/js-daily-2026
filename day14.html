@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">click me</button>
+    <p id="output"></p>
+    
+</body>
+<script>
+   const btn1=document.getElementById("btn");
+   const out=document.getElementById("output");
+   btn.addEventListener("click",()=>{
+    const userName=prompt("what is your name?","Guest");
+    output.textContent="Hello "+ userName + "!";
+   });
+</script>
+</html>
